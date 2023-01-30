@@ -1,0 +1,16 @@
+<div class="col-sm-12 mt-4 mb-4">
+  <div class="card">
+    <div class="card-header">{{ title }}</div>
+    <div class="card-body">
+      <form [formGroup]="form" *ngIf="form">
+        <app-dynamic-form
+          [grid]="!gridSize ? 1 : gridSize"
+          [formGroup]="form"
+          [fields]="getFields()"
+          (eventTrigger)="savedButtonCicked($event)"
+        ></app-dynamic-form>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- {{ form && form.value | json }} -->

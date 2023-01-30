@@ -1,0 +1,4 @@
+<button type="button" (click)="onButtonClicked()" [ngStyle]=setStyle()
+    [ngClass]="{'normal-button': bgButtonColor ==='normal', 'is-clicked':this.isClicked}">
+    <ng-content></ng-content>
+</button>

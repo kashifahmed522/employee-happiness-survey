@@ -1,0 +1,15 @@
+<!-- <button (click)="openModal()">{{modalTitle}}</button> -->
+
+<!-- <app-button (buttonClicked)="buttonTriggered($event)" [bgButtonColor]="'continue'">{{modalTitle}}</app-button> -->
+<!--modals-->
+<div id="openModal-about" class="modalDialog" *ngIf="isOpened">
+    <div class="content-wrapper">
+        <div class="content">
+            <a (click)="closeModal()" title="Close" class="close">X</a>
+            <h2>{{modalTitle}}</h2>
+            <div class="auto-scroll">
+                <ng-content></ng-content>
+            </div>
+        </div>
+    </div>
+</div>

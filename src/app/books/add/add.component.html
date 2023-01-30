@@ -1,0 +1,8 @@
+<div class="container">
+  <app-dynamic-form-json
+    [gridSize]="grid"
+    [fields]="fields"
+    title="Add a New Book"
+    (eventEmitter)="formData($event)"
+  ></app-dynamic-form-json>
+</div>

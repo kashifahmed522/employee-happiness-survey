@@ -1,0 +1,76 @@
+<div class="p-5">
+    <div class="container">
+        <ng-container *ngIf="surveyFormDataSubscribedData && surveyFormDataSubscribedData.length">
+
+
+            <form [formGroup]="surveyForm" (ngSubmit)="onSubmit()">
+                <div class="card p-5">
+                    <div class="row">
+                        <div class="col-6">
+
+                            <div class="mb-3">
+                                <label for="empName" class="form-label">Employee Name</label>
+                                <input type="email" class="form-control" id="empName" formControlName="empName">
+                            </div>
+                        </div>
+                        <div class="col-6">
+
+                            <div class="mb-3">
+                                <label for="submissionDate" class="form-label">Submission Date</label>
+                                <input type="date" class="form-control" id="submissionDate"
+                                    formControlName="submissionDate">
+                            </div>
+                        </div>
+                    </div>
+
+                    <ng-container *ngFor="let surveyData of surveyFormDataSubscribedData || []">
+                        <div>
+                            <label [for]="surveyData.id">{{surveyData.id}}. {{surveyData.name}}</label>
+                        </div>
+                        <div class="col-md-12 mt-2" [ngSwitch]="surveyData.controlName">
+                            <div *ngSwitchCase="'radio'" class="d-flex">
+                                <div class="form-check pr-20" *ngFor="let item of surveyData.value">
+                                    <input class="form-check-input" type="radio" name="radio"
+                                        attr.id="radio-{{item.id}}" formControlName="radio" [value]="item.value">
+                                    <label class="form-check-label" attr.for="radio-{{item.id}}">
+                                        {{item.name}}
+                                    </label>
+                                </div>
+                            </div>
+                            <div *ngSwitchCase="'checkbox'" class="d-flex">
+                                <div class="form-check pr-20" *ngFor="let item of surveyData.value; let i=index">
+                                    <label>
+                                        <input class="form-check-input" type="checkbox" [value]="item.value"
+                                            (change)="onCheckboxChange($event)" attr.id="checkbox-{{item.id}}" />
+                                        <label class="form-check-label" attr.for="checkbox-{{item.id}}">
+                                            {{item.name}}
+                                        </label>
+                                    </label>
+                                </div>
+                            </div>
+                            <div *ngSwitchCase="'singleSelect'" class="d-flex">
+                                <select class="form-select" aria-label="Default select example"
+                                    formControlName="select">
+                                    <option selected>Select...</option>
+                                    <option *ngFor="let item of surveyData.value" [value]="item.id">{{item.name}}
+                                    </option>
+                                </select>
+                            </div>
+                            <div *ngSwitchCase="'multiSelect'" class="d-flex">
+                                <select class="form-select" aria-label="Default select example" multiple
+                                    formControlName="multiSelect">
+                                    <option selected>Select...</option>
+                                    <option *ngFor="let item of surveyData.value" [value]="item.id">{{item.name}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </ng-container>
+                    <div class="d-flex justify-content-end pt-3">
+                        <button class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </ng-container>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+<div [formGroup]="parentForm">
+  <label>Gender:</label>
+
+  <div>
+    <div class="button custom-control custom-radio">
+      <input
+        id="isYes_{{ this.controlName }}"
+        type="radio"
+        class="custom-control-input"
+        [value]="true"
+        [name]="this.controlName"
+        [formControlName]="this.controlName"
+      />
+      <label class="btn btn-default" for="isYes_{{ this.controlName }}"
+        >Yes</label
+      >
+    </div>
+
+    <div class="button custom-control custom-radio">
+      <input
+        id="isNo_{{ this.controlName }}"
+        type="radio"
+        class="custom-control-input"
+        [value]="false"
+        [name]="this.controlName"
+        [formControlName]="this.controlName"
+      />
+      <label class="btn btn-default" for="isNo_{{ this.controlName }}"
+        >No</label
+      >
+    </div>
+  </div>
+</div>

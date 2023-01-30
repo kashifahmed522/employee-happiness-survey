@@ -1,0 +1,36 @@
+.button {
+  float: left;
+  margin: 0 5px 0 0;
+  width: 100px;
+  height: 40px;
+  position: relative;
+  cursor: pointer;
+  border: 2px solid #ccc;
+  border-radius: 12px;
+}
+
+.button label,
+.button input {
+  display: block;
+  position: absolute;
+  top: -2;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.button input[type="radio"] {
+  opacity: 0.011;
+  // z-index: 100;
+}
+
+.button input[type="radio"]:checked + label {
+  border: 2px solid #23659c;
+  border-radius: 12px;
+}
+
+.button label {
+  cursor: pointer;
+  z-index: 90;
+  // line-height: 1.8em;
+}

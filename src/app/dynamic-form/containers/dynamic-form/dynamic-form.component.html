@@ -1,0 +1,21 @@
+<div class="grid">
+  <form [formGroup]="formGroup" [ngClass]="'form-horizontal grid-' + grid">
+    <div
+      *ngFor="let field of fields"
+      [ngStyle]="{ 'grid-column': field.gridColumn ? field.gridColumn : '' }"
+    >
+      <field-builder [field]="field" [form]="formGroup"></field-builder>
+    </div>
+    <div class="d-flex justify-content-between mt-2">
+      <a [routerLink]="['/']" class="btn btn-dark">Back</a>
+      <button
+        type="submit"
+        class="btn btn-dark"
+        [disabled]="!formGroup.valid"
+        (click)="savedData()"
+      >
+        Save
+      </button>
+    </div>
+  </form>
+</div>

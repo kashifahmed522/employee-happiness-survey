@@ -1,0 +1,36 @@
+<div [formGroup]="parentForm">
+  <div
+    class="btn-group btn-group-toggle mt-2 mt-xl-0"
+    ngbRadioGroup
+    formControlName="name"
+  >
+    <label
+      ngbButtonLabel
+      class="btn-outline-secondary mw-110 fw-600"
+      (click)="onYes()"
+    >
+      <input
+        type="radio"
+        ngbButton
+        id="{{ name }}_readioYes"
+        [value]="true"
+      />Yes
+    </label>
+    <label
+      ngbButtonLabel
+      class="btn-outline-secondary mw-110 fw-600"
+      (click)="onNo()"
+    >
+      <input type="radio" ngbButton id="{{ name }}_readioNo" [value]="true" />No
+    </label>
+  </div>
+</div>
+
+<div
+  *ngIf="
+    control?.invalid && (form?.submitted || control?.touched || control?.dirty)
+  "
+  class="text-dander"
+>
+  <span *ngIf="control?.errors?.['required']">Field is required</span>
+</div>

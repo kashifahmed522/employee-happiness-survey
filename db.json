@@ -1,0 +1,220 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "title": "JavaScript",
+      "author": "brend",
+      "cost": 300
+    },
+    {
+      "title": "Harry Potter",
+      "author": "MaT",
+      "cost": "200",
+      "id": 2
+    },
+    {
+      "title": "Javascript",
+      "author": "Any",
+      "cost": "1000",
+      "id": 3
+    },
+    {
+      "title": "du",
+      "author": "adf",
+      "cost": "12",
+      "id": 4
+    },
+    {
+      "title": "Test",
+      "author": "Test",
+      "cost": "123",
+      "id": 5
+    },
+    {
+      "title": "Harry Potter",
+      "author": "MaT",
+      "cost": "4000",
+      "id": 6
+    }
+  ],
+  "questionnaire": [
+    {
+      "id": 1,
+      "question": "Do you find your work engaging?"
+    },
+    {
+      "id": 2,
+      "question": "Are your immediate co-workers committed to the organization's goals?"
+    },
+    {
+      "id": 3,
+      "question": "Would you recommend this organization as a great place to work?"
+    },
+    {
+      "id": 4,
+      "question": "Is your job in alignment with your career goals?"
+    }
+  ],
+  "surveyForm": [
+    {
+      "id": 1,
+      "name": "How satisfied are you with your current job?",
+      "type": "radio-button",
+      "controlName": "radio",
+      "value": [
+        {
+          "id": 1,
+          "name": "Very satisfied",
+          "value": "verySatisfied"
+        },
+        {
+          "id": 2,
+          "name": "Satisfied",
+          "value": "satisfied"
+        },
+        {
+          "id": 3,
+          "name": "Neutral",
+          "value": "Neutral"
+        },
+        {
+          "id": 4,
+          "name": "Dissatisfied",
+          "value": "Dissatisfied"
+        },
+        {
+          "id": 5,
+          "name": "Very dissatisfied",
+          "value": "veryDissatisfied"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "What are the reasons for your dissatisfaction?",
+      "type": "checkbox",
+      "controlName": "checkbox",
+      "value": [
+        {
+          "id": 1,
+          "name": "Lack of growth opportunities",
+          "value": "lackOfGrowthOpportunities"
+        },
+        {
+          "id": 2,
+          "name": "Low salary",
+          "value": "lowSalary"
+        },
+        {
+          "id": 3,
+          "name": "Poor management",
+          "value": "poorManagement"
+        },
+        {
+          "id": 4,
+          "name": "Uninteresting work",
+          "value": "uninterestingWork"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "How satisfied are you with your current job?",
+      "type": "select",
+      "controlName": "singleSelect",
+      "value": [
+        {
+          "id": 1,
+          "name": "Very satisfied",
+          "value": "verySatisfied"
+        },
+        {
+          "id": 2,
+          "name": "Satisfied",
+          "value": "satisfied"
+        },
+        {
+          "id": 3,
+          "name": "Neutral",
+          "value": "Neutral"
+        },
+        {
+          "id": 4,
+          "name": "Dissatisfied",
+          "value": "Dissatisfied"
+        },
+        {
+          "id": 5,
+          "name": "Very dissatisfied",
+          "value": "veryDissatisfied"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "What are the reasons for your dissatisfaction?",
+      "type": "select",
+      "controlName": "multiSelect",
+      "value": [
+        {
+          "id": 1,
+          "name": "Lack of growth opportunities",
+          "value": "lackOfGrowthOpportunities"
+        },
+        {
+          "id": 2,
+          "name": "Low salary",
+          "value": "lowSalary"
+        },
+        {
+          "id": 3,
+          "name": "Poor management",
+          "value": "poorManagement"
+        },
+        {
+          "id": 4,
+          "name": "Uninteresting work",
+          "value": "uninterestingWork"
+        }
+      ]
+    }
+  ],
+  "surveyFormStoreResult": [
+    {
+      "type": "[SurveyForm API] invoke SurveyForm Fetch API",
+      "id": 1
+    },
+    {
+      "type": "[SurveyForm API] invoke SurveyForm Fetch API",
+      "id": 2
+    },
+    {
+      "type": "[SurveyForm API] invoke SurveyForm Fetch API",
+      "id": 3
+    },
+    {
+      "type": "[SurveyForm API] invoke SurveyForm Fetch API",
+      "id": 4
+    },
+    {
+      "type": "[SurveyForm API] invoke SurveyForm Fetch API",
+      "id": 5
+    },
+    {
+      "type": "[SurveyForm API] invoke SurveyForm Fetch API",
+      "id": 6
+    },
+    {
+      "type": "[SurveyForm API] invoke SurveyForm Fetch API",
+      "id": 7
+    },
+    {
+      "type": "[SurveyForm API] invoke SurveyForm Fetch API",
+      "id": 8
+    },
+    {
+      "type": "[SurveyForm API] invoke SurveyForm Fetch API",
+      "id": 9
+    }
+  ]
+}

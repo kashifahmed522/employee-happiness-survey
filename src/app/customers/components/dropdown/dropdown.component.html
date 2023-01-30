@@ -1,0 +1,25 @@
+<p>Start editing to see some magic happen :)</p>
+
+<div *ngFor="let field of fieldArray; index as idx" style="margin-bottom: 8px">
+  <select #selectLang (change)="selected()">
+    <option [ngValue]="null" disabled selected>Select Language</option>
+    <ng-container *ngFor="let lang of languageList">
+      <option
+        *ngIf="selectLang.value === lang.name || !isSelected(lang.name)"
+        value="{{ lang.name }}"
+        [ngValue]="lang.name"
+      >
+        {{ lang.name }}
+      </option>
+    </ng-container>
+  </select>
+
+  <button
+    (click)="deleteFieldValue(idx, selectLang.value)"
+    style="margin-left: 8px"
+  >
+    X
+  </button>
+</div>
+
+<button (click)="addFieldValue()">Add Select</button>

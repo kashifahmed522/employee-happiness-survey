@@ -1,0 +1,211 @@
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+
+@Component({
+  selector: 'app-user-form',
+  templateUrl: './user-form.component.html',
+  styleUrls: ['./user-form.component.scss'],
+})
+export class UserFormComponent {
+  public form: FormGroup;
+
+  unsubcribe: any;
+
+  public fields: any[] = [
+    {
+      type: 'text',
+      name: 'firstName',
+      label: 'First Name',
+      value: 'First Name',
+      required: true,
+    },
+    {
+      type: 'date',
+      name: 'birthDate',
+      label: 'Birth date',
+      value: '2020-02-15',
+      required: true,
+    },
+    {
+      type: 'text',
+      name: 'email',
+      label: 'Email',
+      value: '',
+      required: true,
+    },
+
+    {
+      type: 'file',
+      name: 'picture',
+      label: 'Picture',
+      required: false,
+      onUpload: this.onUpload.bind(this),
+    },
+    {
+      type: 'dropdown',
+      name: 'country',
+      label: 'Country',
+      value: 'in',
+      required: true,
+      options: [
+        { key: 'in', label: 'India' },
+        { key: 'us', label: 'USA' },
+      ],
+    },
+    {
+      type: 'radio',
+      name: 'gender',
+      label: 'Gender',
+      value: 'in',
+      required: true,
+      options: [
+        { key: 'm', label: 'Male' },
+        { key: 'f', label: 'Female' },
+      ],
+    },
+    {
+      type: 'checkbox',
+      name: 'hobby',
+      label: 'Hobby',
+      required: true,
+      options: [
+        { key: 'f', label: 'Fishing' },
+        { key: 'c', label: 'Cooking' },
+      ],
+    },
+  ];
+
+  constructor() {
+    this.form = new FormGroup({
+      fields: new FormControl(JSON.stringify(this.fields)),
+    });
+    this.unsubcribe = this.form.valueChanges.subscribe((update) => {
+      this.fields = JSON.parse(update.fields);
+    });
+  }
+  ngOnInit() {
+    this.form = new FormGroup({});
+    this.fields.forEach((x) => {
+      if (x.type == 'checkbox') {
+        this.form.addControl(x.name, new FormGroup({}));
+        x.options.forEach((o: { key: any }) => {
+          (this.form.get(x.name) as FormGroup).addControl(
+            o.key,
+            new FormControl(false)
+          );
+        });
+      } else {
+        this.form.addControl(
+          x.name,
+          new FormControl(
+            x.value || '',
+            x.required ? Validators.required : null
+          )
+        );
+      }
+    });
+    
+  }
+
+  onUpload(e: any) {
+    console.log(e);
+  }
+
+  getFields() {
+    return this.fields;
+  }
+
+  ngDistroy() {
+    this.unsubcribe();
+  }
+
+  // regConfig: FieldConfig[] = [
+  //   {
+  //     type: 'input',
+  //     label: 'Username',
+  //     inputType: 'text',
+  //     name: 'name',
+  //     validations: [
+  //       {
+  //         name: 'required',
+  //         validator: Validators.required,
+  //         message: 'Name Required',
+  //       },
+  //       {
+  //         name: 'pattern',
+  //         validator: Validators.pattern('^[a-zA-Z]+$'),
+  //         message: 'Accept only text',
+  //       },
+  //     ],
+  //   },
+  //   {
+  //     type: 'input',
+  //     label: 'Email Address',
+  //     inputType: 'email',
+  //     name: 'email',
+  //     validations: [
+  //       {
+  //         name: 'required',
+  //         validator: Validators.required,
+  //         message: 'Email Required',
+  //       },
+  //       {
+  //         name: 'pattern',
+  //         validator: Validators.pattern(
+  //           '^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$'
+  //         ),
+  //         message: 'Invalid email',
+  //       },
+  //     ],
+  //   },
+  //   {
+  //     type: 'input',
+  //     label: 'Password',
+  //     inputType: 'password',
+  //     name: 'password',
+  //     validations: [
+  //       {
+  //         name: 'required',
+  //         validator: Validators.required,
+  //         message: 'Password Required',
+  //       },
+  //     ],
+  //   },
+  //   {
+  //     type: 'radiobutton',
+  //     label: 'Gender',
+  //     name: 'gender',
+  //     options: ['Male', 'Female'],
+  //     value: 'Male',
+  //   },
+  //   {
+  //     type: 'date',
+  //     label: 'DOB',
+  //     name: 'dob',
+  //     validations: [
+  //       {
+  //         name: 'required',
+  //         validator: Validators.required,
+  //         message: 'Date of Birth Required',
+  //       },
+  //     ],
+  //   },
+  //   {
+  //     type: 'select',
+  //     label: 'Country',
+  //     name: 'country',
+  //     value: 'UK',
+  //     options: ['India', 'UAE', 'UK', 'US'],
+  //   },
+  //   {
+  //     type: 'checkbox',
+  //     label: 'Accept Terms',
+  //     name: 'term',
+  //     value: true,
+  //   },
+  //   {
+  //     type: 'button',
+  //     label: 'Save',
+  //   },
+  // ];
+}

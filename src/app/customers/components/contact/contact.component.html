@@ -1,0 +1,117 @@
+<br />
+<small>
+  Note: This form uses FormGroupDirective to bind form group(address) to the DOM
+  element.
+</small>
+<div class="wrapper-box">
+  <div class="container">
+    <h2 class="text-center mb-5">Contact form</h2>
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="emailAddress">Email</label>
+            <span class="required-field">*</span>
+            <!-- <input
+              type="email"
+              class="form-control"
+              name="emailAddress"
+              placeholder="ex:example@domain.com"
+              formControlName="emailAddress"
+            /> -->
+            <input
+              type="text"
+              appValidationLabel
+              formControlName="emailAddress"
+              class="form-control"
+            />
+          </div>
+          <!-- <p *ngIf="this.contactForm.get('emailAddress')?.dirty">
+              Email is required
+            </p> -->
+          <!-- <error-component
+              [controlName]="contactForm.controls['emailAddress']"
+            >
+            </error-component> -->
+
+          <!-- <div
+              *ngIf="contactForm.get('emailAddress')?.touched"
+              class="alert alert-danger"
+            >
+              title is required
+            </div> -->
+          <!-- </div> -->
+          <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <span class="required-field">*</span>
+            <input
+              type="text"
+              class="form-control"
+              name="fullName"
+              placeholder="Full Name"
+              appValidationLabel
+              formControlName="fullName"
+            />
+          </div>
+          <div class="form-group">
+            <label for="fullName">Phone Number</label>
+            <span class="required-field">*</span>
+            <input
+              type="text"
+              class="form-control"
+              name="phoneNumber"
+              id="phoneNumber"
+              placeholder="Phone Number"
+              appValidationLabel="phoneNumber"
+              formControlName="phoneNumber"
+            />
+          </div>
+          <!-- Address -->
+          <!-- <div class="form-group">
+            <app-address name="address"> </app-address>
+          </div> -->
+
+          <!-- <div class="form-group">
+            <app-gender-multiple-options controlName="onProbation">
+            </app-gender-multiple-options>
+          </div> -->
+          <!-- Gender -->
+          <!-- <div class="form-group">
+            <app-gender controlName="isResidentOfCanada"> </app-gender>
+          </div> -->
+
+          <!-- Yes No -->
+          <!-- <div class="form-group">
+            <app-gender controlName="isFirstBuyer"> </app-gender>
+            <app-yes-no-radio-input
+              name="isFirstBuyer"
+            ></app-yes-no-radio-input>
+          </div> -->
+          <!-- <div class="form-group">
+            <label for="comment">Comment</label>
+            <span class="required-field">*</span>
+            <textarea
+              placeholder="Type your comments"
+              class="form-control"
+              formControlName="comment"
+              name="comment"
+            >
+            </textarea>
+          </div> -->
+          <button type="submit" class="btn btn-success">Submit</button>
+          <button
+            style="margin-left: 5px"
+            type="button"
+            class="btn btn-default"
+            (click)="contactForm.reset()"
+            [disabled]="!contactForm.valid"
+          >
+            Reset
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<pre>{{ contactForm.value | json }}</pre>

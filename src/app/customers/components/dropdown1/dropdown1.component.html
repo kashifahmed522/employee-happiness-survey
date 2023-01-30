@@ -1,0 +1,19 @@
+<div *ngFor="let item of fieldArray; let i = index">
+  <select #selectPhoneTypeElement (change)="selectedPhoneType()">
+    <option value="" disabled selected>Choose...</option>
+    <ng-container *ngFor="let phoneType of phoneTypeList">
+      <option
+        value="{{ phoneType.name }}"
+        [ngValue]="phoneType.name"
+        *ngIf="
+          selectPhoneTypeElement.value === phoneType.name ||
+          !isSelected(phoneType.name)
+        "
+      >
+        {{ phoneType.name }}
+      </option>
+    </ng-container>
+  </select>
+</div>
+
+<button (click)="addFieldValue()">Add Select</button>

@@ -1,0 +1,53 @@
+<div class="form-group row gap-2" [formGroup]="form">
+  <label class="col-md-12 form-control-label" [attr.for]="field.label">
+    {{ field.label }}
+    <strong
+      class="text-danger"
+      *ngIf="field.required && form.get(field.name).invalid"
+      >*</strong
+    >
+  </label>
+  <div class="col-md-12" [ngSwitch]="field.type">
+    <textbox
+      *ngSwitchCase="'text'"
+      [field]="field"
+      [form]="form.get(field.name)"
+    ></textbox>
+    <textbox
+      *ngSwitchCase="'number'"
+      [field]="field"
+      [form]="form.get(field.name)"
+    ></textbox>
+    <textbox
+      *ngSwitchCase="'date'"
+      [field]="field"
+      [form]="form.get(field.name)"
+    ></textbox>
+    <dropdown
+      *ngSwitchCase="'dropdown'"
+      [field]="field"
+      [form]="form.get(field.name)"
+    ></dropdown>
+    <checkbox
+      *ngSwitchCase="'checkbox'"
+      [field]="field"
+      [form]="form.get(field.name)"
+    ></checkbox>
+    <radio
+      *ngSwitchCase="'radio'"
+      [field]="field"
+      [form]="form.get(field.name)"
+    ></radio>
+    <file
+      *ngSwitchCase="'file'"
+      [field]="field"
+      [form]="form.get(field.name)"
+    ></file>
+    <div
+      class="alert alert-danger my-1 p-2 fadeInDown animated"
+      *ngIf="!isValid && isDirty"
+    >
+      {{ field.label }} is required
+    </div>
+  </div>
+</div>
