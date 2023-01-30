@@ -1,4 +1,14 @@
-# CustomerApp
+# Employee Survey form with happiness index
+
+please run below command in two different ternials to start 
+npm start
+npm run json-run
+
+employee survey form is available @
+http://localhost:4200/#/survey
+and happiness metrics @
+
+http://localhost:4200/#/survey/happines-index
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.3.
 
@@ -27,89 +37,3 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
 #use this component and pass 'grid' value like 1,2,3,4,5 beyound 5 will consider 1 and pass fields array
-
-<app-dynamic-form-json
-  [gridSize]="grid"
-  [fields]="fields"
-></app-dynamic-form-json>
-
-public fields: any[] = [
-    {
-      type: 'text',
-      name: 'firstName',
-      label: 'First Name',
-      value: '',
-      required: true,
-    },
-    {
-      type: 'text',
-      name: 'lastName',
-      label: 'Last Name',
-      value: '',
-      required: false,
-    },
-    {
-      type: 'date',
-      name: 'birthDate',
-      label: 'Birth date',
-      value: '2020-02-15',
-      required: true,
-      format: 'DD/mm/yyyy',
-    },
-    {
-      type: 'text',
-      name: 'email',
-      label: 'Email',
-      value: '',
-      required: true,
-    },
-    {
-      type: 'dropdown',
-      name: 'country',
-      label: 'Country',
-      value: 'in',
-      required: true,
-      options: [
-        { key: 'in', label: 'India' },
-        { key: 'us', label: 'USA' },
-      ],
-    },
-    {
-      type: 'radio',
-      name: 'gender',
-      label: 'Gender',
-      value: '',
-      required: true,
-      options: [
-        { key: 'm', label: 'Male' },
-        { key: 'f', label: 'Female' },
-      ],
-    },
-    {
-      type: 'checkbox',
-      name: 'hobby',
-      label: 'Hobby',
-      required: true,
-      options: [
-        { key: 'f', label: 'Fishing' },
-        { key: 'c', label: 'Cooking' },
-      ],
-    },
-    {
-      type: 'file',
-      name: 'picture',
-      label: 'Picture',
-      required: false,
-      onUpload: this.onUpload.bind(this),
-      gridColumn: '2  / span 2', // start colum / span how many column need to be merged( start column 2 and span colunm 2)
-    },
-  ];
-
-
-   onUpload(e: any) {
-    console.log(e);
-  }
-
-
-  // start colum / span how many column need to be merged( start column 2 and span colunm 2)
-  gridColumn: '2  / span 2', 
